@@ -1,20 +1,21 @@
 +++
 title = 'Een coole simulatie van opstijgende rook'
 date = 2024-02-07T08:33:28+01:00
-draft = true
+draft = false
+featured_image = "/images/posts/rook-simulatie.png"
 +++
 # Een coole simulatie van opstijgende rook
 
-In deze tutorial maken we een simulatie van een opstijgende rook. We zullen dat stap-voor-stap opbouwen, te beginnen van 1 rokend deeltje, om dan meer rookdeeltjes toe te voegen. 
+In deze tutorial maken we een simulatie van een opstijgende rook. We zullen dat stap-voor-stap opbouwen, te beginnen met 1 enkel rokend deeltje, om dan meer rookdeeltjes toe te voegen. 
 
 <!--more-->
 
-## Even iets over het rook-effect
-Laten we eerst even bekijken wat een rookeffect is. Rook is een soort wolkje, dat langzaam opstijgt, eventueel wat gedragen door de wind, en dat terwijl het opstijgt, zich ook uitspreidt en verdwijnt.
+## Even iets over het rookeffect
+Laten we eerst even bekijken wat een rookeffect is. Rook is een soort wolkje, dat langzaam opstijgt, eventueel wat gedragen door de wind, en dat terwijl het opstijgt zich uitspreidt en verdwijnt.
 
 We gaan dus beginnen met het maken van 1 deeltje dat ergens willekeurig op het scherm verschijnt, en dat vervolgens traag omhoog gaat en uitwaaiert.
 
-## Een basis  ```Deeltje```s klasse
+## Een eenvoudige  ```Deeltje```s klasse
 Om dit te modelleren, introduceren we een Javascript klasse ```Deeltje```, die zal bijhouden waar het deeltje zich bevindt, in welke richting het beweegt en hoe de zichtbaarheid van dat deeltje is.
 
 We zullen eerst beginnen met een heel eenvoudig deeltje: eentje dat enkel een x en y positie heeft, en dat langzaam naar boven gaat, telkens de ```draw()``` functie aangeroepen wordt door p5. 
