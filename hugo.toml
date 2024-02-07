@@ -1,4 +1,4 @@
-baseURL = 'https://nerdkunst.be/'
+# baseURL = 'https://nerdkunst.be/'
 languageCode = 'nl-be'
 title = 'NerdKunst'
 theme = 'ananke'
