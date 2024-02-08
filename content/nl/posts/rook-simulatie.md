@@ -208,7 +208,7 @@ function mouseDragged() {
 
 
 ## Conclusie
-In deze tutorial hebben we een rooksimulatie gemaakt. We maakten gebruik van Javascript klasses en arrays om de deeltjes na te bootsen. Om de rook nog realistische te maken zou je:
+In deze tutorial hebben we een rooksimulatie gemaakt. We maakten gebruik van Javascript klasses en arrays om de deeltjes na te bootsen. Om de rook nog realistischer te maken zou je:
 - de deeltjes niet allemaal exact dezelfde grijstint te maken, maar een beetje variëren. Een echte rookwolk heeft ook vele tinten.
 - een deeltje zelf iets donkerder kleuren binnenin en wat lichter aan de buitenkant.
 - wind introduceren, waarbij de deeltjes een beetje naar 1 kant geblazen worden
