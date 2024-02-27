@@ -1,7 +1,8 @@
 +++
 title = 'Allemaal lijnen - patronen met lijnen. '
 date = 2024-02-09T15:36:59+01:00
-draft = true
+draft = false
+featured_image = "/images/posts/lijnpatroon2.png"
 +++
 
 In deze tutorial gaan we aan de slag met het tekenen van lijnen, om zo patronen te maken. Op't eerste gezicht een beetje saai zal je denken. Ja, misschien wel, al hoop ik met dit artikel aan te tonen dat lijnen ook heel spannende patronen kunnen opleveren ;)
