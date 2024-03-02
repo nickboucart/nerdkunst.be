@@ -3,6 +3,7 @@ title = 'Een coole simulatie van opstijgende rook'
 date = 2024-02-07T08:33:28+01:00
 draft = false
 featured_image = "/images/posts/rook-simulatie.png"
+description = "Een p5js tutorial waarin we een simulatie maken van opstijgende rook"
 +++
 
 In deze tutorial maken we een simulatie van een opstijgende rook. We zullen dat stap-voor-stap opbouwen, te beginnen met 1 enkel rokend deeltje, om dan meer rookdeeltjes toe te voegen. 

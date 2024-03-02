@@ -3,6 +3,7 @@ title = 'Allemaal lijnen - patronen met lijnen. '
 date = 2024-02-09T15:36:59+01:00
 draft = false
 featured_image = "/images/posts/lijnpatroon2.png"
+description = "Een p5js tutorial waarin we patronen maken met lijnen. "
 tags = ['patronen', 'lijnen']
 +++
 
