@@ -4,7 +4,7 @@ date: 2024-03-02T15:07:29+01:00
 tags: ["tutorial", "interactief"]
 featured_image: "/images/posts/vierkanten.png"
 description: "Laat je gebruikers je kunstwerk beïnvloeden, zonder dat ze moeten coderen."
-draft: true
+draft: false
 ---
 Wanneer je even kijkt naar de code van het artikel over de [patronen met vierkanten]({{< ref "patronen-met-vierkanten.md" >}}), dan zie je bovenaan de sketch een variabele ```vierkantenPerRij```. Als je wat wil experimenteren wat het effect is van meer of minder vierkanten, dan pas je snel die variabele aan en voert de sketch opnieuw uit. Zou het niet cool zijn dat de bewonderaars van je kunstwerk dat zelf kunnen aanpassen, zonder te coderen? Lees snel verder en leer hoe je dit kan doen.
 <!--more-->
