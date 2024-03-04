@@ -1,5 +1,5 @@
 ---
-title: "Over Hoeken Sinussen en Cosinussen"
+title: "Over Hoeken, Sinussen en Cosinussen"
 date: 2024-03-03T09:14:34+01:00
 tags: ["tutorial", "meetkunde", "sinus", "cosinus"]
 featured_image: "/images/posts/sinus-cosinus.png"
