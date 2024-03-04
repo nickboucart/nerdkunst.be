@@ -10,7 +10,7 @@ We duiken vandaag wat in de meetkunde, en meerbepaald sinussen en cosinussen. We
 
 <!--more-->
 ## De basis
-We gaan beginnen met een assenkruis te tekenen in het midden van ons canvas, en een cirkel met middelpunt in het punt (0,0), met een straal van 125. Vanuit het midden trekken we een lijn onder een hoek van 30 graden. We noemen die hoek α. Het punt waar die lijn de cirkel snijdt, is een heel belangrijk punt: om de coördinaten van dat punt te bepalen, hebben we de cosinus en sin van de hoek α nodig. Om de x-coördinaat van dat punt te berekenen, moeten we de straal van de cirkel (in deze sketch 125) vermenigvuldigen met de cosinus van de hoek α. (groen op de tekening) Voor de y-coördinaat gebruiken we de sinus. (blauw op de tekening.) In de meetkunde zegt men ook soms: we projecteren het punt op op een cirkel op de x-as en de y-as. De sinus en cosinus van een hoek is altijd een getal tussen -1 en 1.
+We gaan beginnen met een assenkruis te tekenen in het midden van ons canvas, en een cirkel met middelpunt in het punt (0,0), met een straal van 125. Vanuit het midden trekken we een lijn onder een hoek van 30 graden. We noemen die hoek α. Het punt waar die lijn de cirkel snijdt, is een heel belangrijk punt: om de coördinaten van dat punt te bepalen, hebben we de cosinus en sin van de hoek α nodig. Om de x-coördinaat van dat punt te berekenen, moeten we de straal van de cirkel (in deze sketch 125) vermenigvuldigen met de cosinus van de hoek α. (groen op de tekening) Voor de y-coördinaat gebruiken we de sinus. (blauw op de tekening.) In de meetkunde zegt men ook soms: we projecteren het punt op de x-as en de y-as. De sinus en cosinus van een hoek is altijd een getal tussen -1 en 1.
 
 {{< p5 height="700" width="450">}}
 let straal = 125;
