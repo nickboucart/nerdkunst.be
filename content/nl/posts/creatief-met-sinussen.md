@@ -87,11 +87,13 @@ function setup() {
   colorMode(HSL);
   sliderX = createSlider(20, 60, factorX);
   sliderX.input(nieuweInput);
+  sliderX.position(10,10);
   sliderY = createSlider(20, 60, factorY);
   sliderY.input(nieuweInput);
+  sliderY.position(10, 30);
 
-  let sliderTekst = createP("Verander de vorm");
-  sliderTekst.position(30, height + 10);
+  let sliderTekst = createP("Verander de vorm door de sliders te verschuiven.");
+  sliderTekst.position(10, 40);
 }
 
 function draw() {
@@ -113,6 +115,7 @@ function nieuweInput() {
   background(30);
   loop();
 }
+
 {{< / p5 >}}
 
 ## Conclusie.
