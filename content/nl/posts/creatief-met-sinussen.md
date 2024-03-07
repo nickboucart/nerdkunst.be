@@ -119,4 +119,4 @@ function nieuweInput() {
 {{< / p5 >}}
 
 ## Conclusie.
-In deze post bouwden we verder op sinussen en cosinussen. Wanneer je x- en y-coördinaten neemt op basis van verschillende hoeken, krijg je allerlei complexe, goniometrische figueren, waarvan er sommige doen denken aan keltisch symbolen. Experimenteer erop los en laat je verwonderen door de steeds veranderende tekeningen die je met een relatief simpele formule telkens weer bekomt.
+In deze post bouwden we verder op sinussen en cosinussen. Wanneer je x- en y-coördinaten neemt op basis van verschillende hoeken, krijg je allerlei complexe, goniometrische figuren, waarvan er sommige doen denken aan keltisch symbolen. Experimenteer erop los en laat je verwonderen door de steeds veranderende tekeningen die je met een relatief simpele formule telkens weer bekomt.
