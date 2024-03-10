@@ -1,10 +1,10 @@
 ---
 title: "Een Installatie Met AI"
 date: 2024-03-09T11:56:16+01:00
-tags: ['artificiële intelligentie', 'installatie', 'interactieve kunst', 'tutorial']
-featured_image: "/images/posts/vierkanten.png"
+tags: ['artificiële intelligentie', 'installatie', 'interactieve kunst', 'tutorial', 'ml5js', 'p5js']
+featured_image: "/images/posts/stoom-uit-oren.png"
 description: "Laat stoom uit de oren van je toeschouwers komen."
-draft: true
+draft: false
 ---
 In een [vorige post]({{< ref "rook-simulatie.md" >}}) zag je hoe je een rooksimulatie kunt maken. In deze post gaan we daarop verderwerken: we gaan het spreekwoord "_er komt stoom uit zijn oren_" even heel letterlijk nemen :) We gaan daarvoor een AI-model gebruiken om beelden gemaakt met onze webcam te herkennen.
 
@@ -15,6 +15,146 @@ Uit het artikeltje over de rooksimulatie weten we hoe we rook kunnen laten opsti
 Gelukkig moeten we niet teveel dingen afweten van machine learning om dit model te kunnen gebruiken. Er bestaat een makkelijk te gebruiken bibliotheek (ml5.js)[https://learn.ml5js.org/#/] die het simpel maakt om dit AI-model te gebruiken.
 
 ## Aan de slag
-Het eerste wat we moeten doen, is de webcam gebruiken in onze sketch. In p5js is kan dat gemakkelijk met de ```createCapture()```-functie. Die kan de beelden van je webcam vastpakken en je daarop laten werken. Hieronder zie je een sketch die het webcam beeld capteert en tekent op een canvas.
+Het eerste wat we moeten doen, is de webcam gebruiken in onze sketch. In p5js is kan dat gemakkelijk met de ```createCapture()```-functie. Die kan de beelden van je webcam vastpakken en je daarop laten werken. Hieronder zie je een sketch die het webcam beeld capteert en tekent op een canvas. __Let op__: je zal een popup krijgen die je vraagt of de webpagina je camera mag gebruiken. Hierop antwoord je best met ok, anders gaat het niet werken. Dat is een beveiling die deel uitmaakt van alle browsers.
 
+{{< p5 height="700" width="500">}}
 
+let video;
+
+function setup() {
+  createCanvas(640, 480);
+  video = createCapture(VIDEO);
+  video.hide();
+}
+
+function draw() {
+  image(video, 0, 0);
+}
+{{< / p5 >}}
+
+## En nu een sprankeltje AI erbij.
+We gaan nu de ml5js bibliotheek mee laden in onze sketch. Als je deze tutorials zelf volgt binnen de editor op de p5js site, zal je in de ```index.html``` file van je project een extra lijntje moeten toevoegen binnen de ```<head>```tag. Dat gaat er zo ongeveer moeten uitzien (let vooral op de 2e ```<script>``` tag).
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+</head>
+<body>
+  <script src="sketch.js"></script>
+</body>
+</html>
+```
+
+De volgende sketch toont hoe je die ml5js bibliotheek kan gebruiken. Het PoseNet AI model verwacht een beeld als input, en geeft als output een lijst van _poses_. Een _pose_ is een object dat een lichaamshouding weergeeft. PoseNet beschrijft een lichaamshouding aan de hand van 17 punten, zoals de neus, linkeroor, rechteroor, linker- en rechterschouder, enz. Voor elk van deze punten geeft PoseNet de coordinaten en een score tussen 0 en 1 om aan te gegven hoe waarschijnlijk het is dat dit punt ook daadwerkelijk klopt. {{< figure src="https://camo.githubusercontent.com/c3641b718d7e613b2ce111a6a4575e88ca35a60cb325efdd9113c453b2a09301/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f6d6f76656e65742f636f636f2d6b6579706f696e74732d3530302e706e67"  title="Overzicht van de 17 PoseNet keypoints" alt="Overzicht van de PoseNet keypoints" class="w-25 center" >}}
+
+{{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@latest/dist/ml5.min.js']">}}
+let video;
+let pose;
+
+function setup() {
+  createCanvas(640, 480);
+  video = createCapture(VIDEO);
+  video.hide();
+  poseNet = ml5.poseNet(video, modelGeladen);
+  poseNet.on('pose', gotPoses);
+}
+function modelGeladen() {
+  console.log('poseNet is klaar');
+}
+
+function gotPoses(poses) {
+  // poseNet kan poses van meerdere mensen op een beeld herkennen. We gebruiken enkel de eerste persoon
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+  }
+}
+
+function draw() {
+  image(video, 0, 0);
+    if (pose) {
+    let linkerOor = pose.leftEar;
+    let rechterOor = pose.rightEar;
+    fill('green');
+    circle(linkerOor.x, linkerOor.y, 50);
+    fill('blue');
+    circle(rechterOor.x, rechterOor.y, 50);
+    }
+}
+{{< / p5 >}}
+
+## Stoom uit de oren.
+Wohaa, hoe cool is dit allemaal? Dat is toch echt wel al knap, niet? Nu gaan we nog een stapje verder. We gaan de code uit onze rooksimulator mee in deze sketch copiëren, en in de plaats van die cickeltjes op de oren te plakken, laten we de rook vertrekken vanop die plaats.
+
+{{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@latest/dist/ml5.min.js']">}}
+let video;
+let pose;
+let deeltjes;
+
+class Deeltje {
+  constructor(x, y, zijwind) {
+    this.x = x;
+    this.y = y;
+    this.vy = -2;
+    this.vx = zijwind;
+    this.kleur = 230;
+    this.alpha = 255;
+    this.straal = 5;
+  }
+  update() {
+    this.y += this.vy;
+    this.x += this.vx;
+    this.alpha -= 3;
+    this.straal += 1;
+  }
+  show() {
+    noStroke();
+    fill(this.kleur, this.alpha);
+    ellipse(this.x, this.y, this.straal);
+  }
+}
+
+function setup() {
+  createCanvas(640, 480);
+  deeltjes = [];
+  video = createCapture(VIDEO);
+  video.hide();
+  poseNet = ml5.poseNet(video, modelGeladen);
+  poseNet.on("pose", gotPoses);
+}
+function modelGeladen() {
+  console.log("poseNet is klaar");
+}
+
+function gotPoses(poses) {
+  // poseNet kan poses van meerdere mensen op een beeld herkennen. We gebruiken enkel de eerste persoon
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+  }
+}
+
+function draw() {
+  background(0);
+  image(video, 0, 0);
+
+  if (pose) {
+    let linkerOor = pose.leftEar;
+    let rechterOor = pose.rightEar;
+    let deeltje = new Deeltje(linkerOor.x, linkerOor.y, 1);
+    deeltjes.push(deeltje);
+    deeltje = new Deeltje(rechterOor.x, rechterOor.y, -1);
+    deeltjes.push(deeltje);
+  }
+  for (i = 0; i < deeltjes.length; i++) {
+    deeltjes[i].show();
+    deeltjes[i].update();
+  }
+}
+{{< / p5 >}}
+
+## Conclusie
+In dit artikel hebben we artificiële intelligentie gebruikt om stoom uit onze oren te laten komen. Dat bleek eigenlijk niet eens zo moeilijk, als je het juiste AI model weet te gebruiken. Je zou hier nog op kunnen verder bouwen door bijvoorbeeld een grote kauwgombel te laten verschijnen en knappen, of door een sikje op het gezicht te plakken. Je zou ook een ander AI model kunnen gebruiken dat nog meer punten op het lichaam kan herkennen. De mogelijkheden zijn eindeloos. Veel plezier ermee!!

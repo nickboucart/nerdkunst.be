@@ -1,3 +1,8 @@
-<script type="text/p5" data-autoplay data-p5-version="1.9.0" {{ with .Get "height" }} data-height="{{ . }}"{{ end }} {{ with .Get "width" }} data-preview-width="{{ . }}"{{ end }}>
+<script type="text/p5" 
+    data-autoplay data-p5-version="1.9.0" 
+    {{ with .Get "height" }} data-height="{{ . }}"{{ end }}
+    {{ with .Get "width" }} data-preview-width="{{ . }}"{{ end }}
+    {{ with .Get "extra-libs" }} data-extra-libs="{{ . }}"{{ end }}
+    >
     {{ .Inner }}
 </script>
