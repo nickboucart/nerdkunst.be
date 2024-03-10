@@ -87,7 +87,7 @@ function draw() {
 }
 {{< / p5 >}}
 
-## Stoom uit de oren.
+## Stoom uit je oren.
 Wohaa, hoe cool is dit allemaal? Dat is toch echt wel al knap, niet? Nu gaan we nog een stapje verder. We gaan de code uit onze rooksimulator mee in deze sketch copiëren, en in de plaats van die cickeltjes op de oren te plakken, laten we de rook vertrekken vanop die plaats.
 
 {{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@latest/dist/ml5.min.js']">}}
