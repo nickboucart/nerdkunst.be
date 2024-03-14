@@ -1,9 +1,9 @@
 ---
-title: "Een Installatie Met AI"
+title: "Er komt stoom uit je oren!"
 date: 2024-03-09T11:56:16+01:00
 tags: ['artificiële intelligentie', 'installatie', 'interactieve kunst', 'tutorial', 'ml5js', 'p5js']
 featured_image: "/images/posts/stoom-uit-oren.png"
-description: "Laat stoom uit de oren van je toeschouwers komen."
+description: "Gebruik een AI-model om lichaamshoudingen te herkennen"
 draft: false
 ---
 In een [vorige post]({{< ref "rook-simulatie.md" >}}) zag je hoe je een rooksimulatie kunt maken. In deze post gaan we daarop verderwerken: we gaan het spreekwoord "_er komt stoom uit zijn oren_" even heel letterlijk nemen :) We gaan daarvoor een AI-model gebruiken om beelden gemaakt met onze webcam te herkennen.
@@ -88,7 +88,7 @@ function draw() {
 {{< / p5 >}}
 
 ## Stoom uit je oren.
-Wohaa, hoe cool is dit allemaal? Dat is toch echt wel al knap, niet? Nu gaan we nog een stapje verder. We gaan de code uit onze rooksimulator mee in deze sketch copiëren, en in de plaats van die cickeltjes op de oren te plakken, laten we de rook vertrekken vanop die plaats.
+Wohaa, hoe cool is dit allemaal? Dat is toch echt wel al knap, niet? Nu gaan we nog een stapje verder. We gaan de code uit onze rooksimulator mee in deze sketch copiëren, en in de plaats van die cickeltjes op de oren te plakken, laten we de rook vertrekken vanop die plaats. Je zal zien dat ik ook zijwind heb ingevoerd, dit om de rook wat meer in naar links en rechts te laten gaan. Door er een klein beetje random aan toe te voegen, geeft dat ook nog een extra organisch effect. Ik varieer ook de kleur van de individuele rookdeeltjes wat, zodat de rookwolk nog wat echter is.
 
 {{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@latest/dist/ml5.min.js']">}}
 let video;
@@ -100,8 +100,8 @@ class Deeltje {
     this.x = x;
     this.y = y;
     this.vy = -2;
-    this.vx = zijwind;
-    this.kleur = 230;
+    this.vx = zijwind + random(-0.5, 0.5);
+    this.kleur = random(200,230);
     this.alpha = 255;
     this.straal = 5;
   }
