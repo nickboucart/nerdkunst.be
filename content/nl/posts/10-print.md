@@ -1,10 +1,10 @@
 ---
 title: "10 Print"
 date: 2024-05-06T15:20:49+02:00
-tags: []
+tags: ["lijnenspel", "tutorial", "p5"]
 featured_image: "/images/posts/print10-size20.png"
-description: ""
-draft: true
+description: "We maken een doolhof op basis van de print 10 one-liner"
+draft: false
 ---
 Een tijdje terug hadden we hier al [een post over lijnen]({{< ref "lijn-patronen.ml" >}}), in dit artikel gaan we opnieuw met lijnen aan de slag. We vertrekken van legendarische lijn code, ooit geschreven voor de Commodore 64, die misschien wel aan de wieg staat wat we vandaag computerkunst noemen.
 
