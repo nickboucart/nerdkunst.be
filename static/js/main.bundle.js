@@ -61,6 +61,7 @@
 	    var id = embeddingPageURL + '_' + qs['id'];
 	    var baseSketchURL = qs['baseSketchURL'] || embeddingPageURL;
 	    var autoplay = (qs['autoplay'] === 'on');
+	    var noEditor = (qs['noEditor'] === 'on');
 	    var initialContent = qs['sketch'] || defaultSketchJS;
 	    var p5version = qs['p5version'] || defaults.P5_VERSION;
 	    var previewWidth = parseInt(qs['previewWidth']);
@@ -76,7 +77,7 @@
 	        maxRunTime = defaults.MAX_RUN_TIME;
 	    }
 	    initialContent = initialContent.replace(/\r\n/g, '\n').trim();
-	    ReactDOM.render(React.createElement(app_1.default, {initialContent: initialContent, autosaver: new autosaver_1.SessionStorageAutosaver(id), baseSketchURL: baseSketchURL, p5version: p5version, previewWidth: previewWidth, maxRunTime: maxRunTime, autoplay: autoplay, libs: libs}), document.getElementById('app-holder'));
+	    ReactDOM.render(React.createElement(app_1.default, {initialContent: initialContent, autosaver: new autosaver_1.SessionStorageAutosaver(id), baseSketchURL: baseSketchURL, p5version: p5version, previewWidth: previewWidth, maxRunTime: maxRunTime, autoplay: autoplay, noEditor: noEditor, libs: libs}), document.getElementById('app-holder'));
 	}
 	window.addEventListener('load', start);
 
@@ -23758,7 +23759,7 @@
 	            this.state.editorContent === this.state.previewContent) {
 	            errorLine = this.state.lastError.line;
 	        }
-	        return (React.createElement("div", {className: "app"}, React.createElement(toolbar_1.default, {onPlayClick: this.handlePlayClick, onStopClick: this.state.isPlaying && this.handleStopClick, onUndoClick: this.state.canUndo && this.handleUndoClick, onRedoClick: this.state.canRedo && this.handleRedoClick, onRevertClick: canRevert && this.handleRevertClick}), React.createElement("div", {className: "panes"}, React.createElement(editor_1.default, {ref: "editor", content: this.state.editorContent, errorLine: errorLine, onChange: this.handleEditorChange}), React.createElement("div", {className: "preview-holder-wrapper"}, this.state.isPlaying
+	        return (React.createElement("div", {className: "app"}, React.createElement(toolbar_1.default, {onPlayClick: this.handlePlayClick, onStopClick: this.state.isPlaying && this.handleStopClick, onUndoClick: this.state.canUndo && this.handleUndoClick, onRedoClick: this.state.canRedo && this.handleRedoClick, onRevertClick: canRevert && this.handleRevertClick}), React.createElement("div", {className: "panes"}, this.props.noEditor ? null : React.createElement(editor_1.default, {ref: "editor", content: this.state.editorContent, errorLine: errorLine, onChange: this.handleEditorChange}), React.createElement("div", {className: "preview-holder-wrapper"}, this.state.isPlaying
 	            ? React.createElement(preview_1.default, {content: this.state.previewContent, baseSketchURL: this.props.baseSketchURL, p5version: this.props.p5version, maxRunTime: this.props.maxRunTime, width: this.props.previewWidth, timestamp: this.state.startPlayTimestamp, onError: this.handlePreviewError, libs: this.props.libs})
 	            : null)), React.createElement("div", {className: "status-bar"}, this.state.lastError
 	            ? React.createElement(ErrorMessage, __assign({}, this.state.lastError))
