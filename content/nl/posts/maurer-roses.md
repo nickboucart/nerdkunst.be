@@ -54,7 +54,7 @@ function tekenRoos(n, d, s) {
 
     vertex(x, y);
   }
-  endShape(CLOSE);
+  endShape();
 }
 
 {{< / p5 >}}
@@ -108,7 +108,7 @@ function tekenRoos(n, d, s) {
 
     vertex(x, y);
   }
-  endShape(CLOSE);
+  endShape();
 }
 
 {{< / p5 >}}
