@@ -40,7 +40,7 @@ We gaan nu de ml5js bibliotheek mee laden in onze sketch. Als je deze tutorials 
 <html>
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
-  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <script src="https://unpkg.com/ml5@lat0.12.2/dist/ml5.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8" />
 </head>
@@ -52,7 +52,7 @@ We gaan nu de ml5js bibliotheek mee laden in onze sketch. Als je deze tutorials 
 
 De volgende sketch toont hoe je die ml5js bibliotheek kan gebruiken. Het PoseNet AI model verwacht een beeld als input, en geeft als output een lijst van _poses_. Een _pose_ is een object dat een lichaamshouding weergeeft. PoseNet beschrijft een lichaamshouding aan de hand van 17 punten, zoals de neus, linkeroor, rechteroor, linker- en rechterschouder, enz. Voor elk van deze punten geeft PoseNet de coordinaten en een score tussen 0 en 1 om aan te gegven hoe waarschijnlijk het is dat dit punt ook daadwerkelijk klopt. {{< figure src="https://camo.githubusercontent.com/c3641b718d7e613b2ce111a6a4575e88ca35a60cb325efdd9113c453b2a09301/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f6d6f76656e65742f636f636f2d6b6579706f696e74732d3530302e706e67"  title="Overzicht van de 17 PoseNet keypoints" alt="Overzicht van de PoseNet keypoints" class="w-25 center" >}}
 
-{{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@latest/dist/ml5.min.js']">}}
+{{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@0.12.2/dist/ml5.min.js']">}}
 let video;
 let pose;
 
@@ -90,7 +90,7 @@ function draw() {
 ## Stoom uit je oren.
 Wohaa, hoe cool is dit allemaal? Dat is toch echt wel al knap, niet? Nu gaan we nog een stapje verder. We gaan de code uit onze rooksimulator mee in deze sketch copiëren, en in de plaats van die cickeltjes op de oren te plakken, laten we de rook vertrekken vanop die plaats. Je zal zien dat ik ook zijwind heb ingevoerd, dit om de rook wat meer in naar links en rechts te laten gaan. Door er een klein beetje random aan toe te voegen, geeft dat ook nog een extra organisch effect. Ik varieer ook de kleur van de individuele rookdeeltjes wat, zodat de rookwolk nog wat echter is.
 
-{{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@latest/dist/ml5.min.js']">}}
+{{< p5 height="700" width="500" extra-libs="['//unpkg.com/ml5@0.12.2/dist/ml5.min.js']">}}
 let video;
 let pose;
 let deeltjes;
